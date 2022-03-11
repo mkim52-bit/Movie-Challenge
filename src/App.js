@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import MovieArray from './components/MovieArray';
 import SearchBar from './components/SearchBar';
+import Autosuggest from 'react-autosuggest/dist/Autosuggest';
 function App() {
   const api_key = '690ede78';
   const [movies, setMovies] = useState([])
@@ -29,13 +30,12 @@ function App() {
     setName(mv)
     setDisplay(false)
     getDetail(mv)
-    
     setComplete(true)
   }
 
 
   useEffect(() =>{
-    
+    console.log("here")
     getMovie(title)
     
   },[title])
@@ -55,7 +55,10 @@ function App() {
   
 
   
-  return (<div className='container'>
+  return (
+  <div>
+  <div class='input-group'>
+    <div class = 'form-outline'>
         <input
         id="auto"
         onClick={() => setDisplay(!display)}
@@ -64,6 +67,16 @@ function App() {
         onChange={event => setTitle(event.target.value)}
        
       />
+        </div>
+        <button type="button" class="btn btn-primary" onClick={event => {
+          setTitle(event.target.value)
+          updateSearch(title)
+
+
+        }}>
+          <i class="fas fa-search"></i>
+  </button>
+      </div>
       {movies && display && (
         <div className="autoContainer">
           {movies
@@ -74,8 +87,6 @@ function App() {
                   onKeyUp={event => {
                     console.log("pressed")
                     setTitle(event.target.value)
-                    
-          
                   } }
                  
                   tabIndex="0"
@@ -103,6 +114,13 @@ function App() {
  
 
 </div>
+
+<div>
+
+
+  
+</div>
+
 
 </div>
 
