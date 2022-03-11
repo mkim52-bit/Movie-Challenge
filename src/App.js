@@ -12,7 +12,7 @@ function App() {
   const getMovie = async (title) => {
     const url = `http://www.omdbapi.com/?s=${title}&apikey=${api_key}`
       const response = await axios.get(url);
-      console.log(response.data)
+      
       setMovies(response.data.Search)
       return response
 
@@ -31,7 +31,7 @@ function App() {
 
   }
 
-  console.log(title)
+  
   
   
   return (<div className='container'>

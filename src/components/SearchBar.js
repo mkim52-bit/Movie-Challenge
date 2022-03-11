@@ -1,8 +1,7 @@
 import React from "react";
 
 const SearchBar = (props) => {
-    
-    if(props.movies){
+   
         return (
             <div className="search">
                 <div className="input">
@@ -12,41 +11,26 @@ const SearchBar = (props) => {
                 placeholder='Type to search...'
                 ></input>
                 </div>
-                <div className="drop">
-                    
-                        {props.movies.map((movie) => (
-                            
-                        <button onClick={console.log(movie.Title)} >
-                           {movie.Title}
-                            
-                        </button>
-                        
-                    ))}
-    
-                </div>
+            {props.movies && (
+                <div className="dataResult">
+                {props.movies.map((movie, key) => {
+                    console.log(movie)
+                  return (
+                    <a >
+                      <p>{movie.Title} </p>
+                    </a>
+                  );
+                })}
+              </div>
+
+            )}
                  
              
             </div>
         )
         
-    }
-    else{
-        return (
-            <div className="search">
-                <div className="input">
-                <input 
-                value={props.value}
-                onChange={(event) => props.setTitle(event.target.value)}
-                placeholder='Type to search...'
-                ></input>
-                </div>
     
-            </div>
-        )
-
-
-
-    }
+  
     
  
 }
