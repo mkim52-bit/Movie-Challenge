@@ -6,7 +6,9 @@ function App() {
   const api_key = '690ede78';
   const [movies, setMovies] = useState([])
   const [title, setTitle] = useState('')
-  const [suggest, setSuggest] = useState([])
+  const [display, setDisplay] = useState(false)
+  const [desc, setDesc] = useState('')
+  const [poster, SetPoster] = useState('')
   
 
   const getMovie = async (title) => {
@@ -19,33 +21,67 @@ function App() {
   }
 
 
+  const updateSearch = mv => {
+    setTitle(mv)
+    setDisplay(false)
+  }
+
 
   useEffect(() =>{
     
     getMovie(title)
+    getDetail(title)
   },[title])
 
-
-  let props = {
-
-
-  }
-
   
+ const getDetail = async (title) => {
+  const url = `https://www.omdbapi.com/?t=${title}&apikey=690ede78`
+  const response = await axios.get(url);
+  setDesc(response.data.Plot)
+  SetPoster(response.data.Poster)
+
+
+ }
+
+  console.log(title)
   
   
   return (<div className='container'>
-  <div>
-  <SearchBar title={title} setTitle={setTitle} movies = {movies}/>
-</div>
-{/* 
-<div>
-<MovieArray movies = {movies}/>
+        <input
+        id="auto"
+        onClick={() => setDisplay(!display)}
+        placeholder="Type to search"
+        value={title}
+        onChange={event => setTitle(event.target.value)}
+      />
+      {movies && display && (
+        <div className="autoContainer">
+          {movies
+            .map((value, i) => {
+              return (
+                <div
+                  onClick={() => updateSearch(value.Title)}
+                  
+                 
+                  tabIndex="0"
+                  key={i}
+                >
+                  <span>{value.Title}</span>
+                  
+                </div>
+              );
+            })}
+    
+        </div>
+      )}
+    <div>
+        {title}
+    <img src={poster} alt="movie" />
+ {desc}
+ 
 
-
-  
 </div>
-*/}
+
 </div>
 
 
@@ -53,6 +89,27 @@ function App() {
   )
   
   }
+
+
+
+
+
+
+
+    {/*
+  <div>
+  <SearchBar title={title} setTitle={setTitle} movies = {movies} update={updateSearch}/>
+</div>
+{ 
+<div>
+<MovieArray movies = {movies}/>
+
+
+  
+</div>
+}
+*/}
+
   
   
 
