@@ -9,12 +9,14 @@ function App() {
   const [display, setDisplay] = useState(false)
   const [desc, setDesc] = useState('')
   const [poster, SetPoster] = useState('')
+  const [complete, setComplete] = useState(false)
+  const [name, setName] = useState('')
   
 
   const getMovie = async (title) => {
-    const url = `http://www.omdbapi.com/?s=${title}&apikey=${api_key}`
+    const url = `http://www.omdbapi.com/?s=${title}&page=1&apikey=${api_key}`
       const response = await axios.get(url);
-      
+      console.log("retrieved")
       setMovies(response.data.Search)
       return response
 
@@ -22,20 +24,27 @@ function App() {
 
 
   const updateSearch = mv => {
+    
     setTitle(mv)
+    setName(mv)
     setDisplay(false)
+    getDetail(mv)
+    
+    setComplete(true)
   }
 
 
   useEffect(() =>{
     
     getMovie(title)
-    getDetail(title)
+    
   },[title])
 
+
+
   
- const getDetail = async (title) => {
-  const url = `https://www.omdbapi.com/?t=${title}&apikey=690ede78`
+  const getDetail = async (title) => {
+  const url = `https://www.omdbapi.com/?t=${title}&page=1&apikey=690ede78`
   const response = await axios.get(url);
   setDesc(response.data.Plot)
   SetPoster(response.data.Poster)
@@ -43,8 +52,8 @@ function App() {
 
  }
 
-  console.log(title)
   
+
   
   return (<div className='container'>
         <input
@@ -53,6 +62,7 @@ function App() {
         placeholder="Type to search"
         value={title}
         onChange={event => setTitle(event.target.value)}
+       
       />
       {movies && display && (
         <div className="autoContainer">
@@ -61,7 +71,12 @@ function App() {
               return (
                 <div
                   onClick={() => updateSearch(value.Title)}
-                  
+                  onKeyUp={event => {
+                    console.log("pressed")
+                    setTitle(event.target.value)
+                    
+          
+                  } }
                  
                   tabIndex="0"
                   key={i}
@@ -75,9 +90,16 @@ function App() {
         </div>
       )}
     <div>
-        {title}
-    <img src={poster} alt="movie" />
- {desc}
+      {complete && (
+        <div>
+      {name}
+      <img src={poster} alt="movie" />
+      {desc}
+        
+        </div>
+
+      )}
+          
  
 
 </div>
@@ -96,19 +118,7 @@ function App() {
 
 
 
-    {/*
-  <div>
-  <SearchBar title={title} setTitle={setTitle} movies = {movies} update={updateSearch}/>
-</div>
-{ 
-<div>
-<MovieArray movies = {movies}/>
 
-
-  
-</div>
-}
-*/}
 
   
   
