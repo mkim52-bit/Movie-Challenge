@@ -6,6 +6,7 @@ function App() {
   const api_key = '690ede78';
   const [movies, setMovies] = useState([])
   const [title, setTitle] = useState('')
+  const [suggest, setSuggest] = useState([])
   
 
   const getMovie = async (title) => {
@@ -19,53 +20,32 @@ function App() {
 
 
 
-
-// const searchMovie = async (searchValue) => {
-   //const url = `http://www.omdbapi.com/?s=${title}&apikey=${api_key}`;
-
-//   const response = await fetch(url);
-//   const responseJson = await response.json();
-
-
-
-//   if (responseJson.Search) {
-//     setMovies(responseJson.Search);
-   
-//   }
-// };
-
-  // useEffect(()=>{           //call searchMovie everyime title arr is changed
-  //   if(title.length !==0){
-
-  //     searchMovie(title)
-
-  //   }
-    
-  // },[title])
-
   useEffect(() =>{
     
     getMovie(title)
-
-
-
   },[title])
 
 
-  
+  let props = {
+
+
+  }
+
+  console.log(title)
   
   
   return (<div className='container'>
   <div>
-  <SearchBar title={title} setTitle={setTitle} />
+  <SearchBar title={title} setTitle={setTitle} movies = {movies}/>
 </div>
-
+{/* 
 <div>
 <MovieArray movies = {movies}/>
 
 
   
 </div>
+*/}
 </div>
 
 

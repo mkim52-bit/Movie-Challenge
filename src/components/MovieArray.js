@@ -2,12 +2,12 @@ import React from "react";
 
 const MovieArray = (props) => {
     if(props.movies){
-        console.log(props.movies)
+        
         return (
             <>
                 {props.movies.map((movie) => (
                     <div >
-                        <img src={movie.Poster} alt='movie'></img>
+                       <img src={movie.Poster} alt='movie'></img>
                     
                     </div>
                 ))}
@@ -17,7 +17,7 @@ const MovieArray = (props) => {
     }else{
         return <div></div>
     }
-
+ 
   
   
   };
