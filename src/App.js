@@ -7,19 +7,26 @@ function App() {
   const api_key = '690ede78';
   const [movies, setMovies] = useState([])
   const [title, setTitle] = useState('')
-  const [display, setDisplay] = useState(false)
+  const [suggest, setSuggest] = useState(false)
   const [desc, setDesc] = useState('')
   const [poster, SetPoster] = useState('')
-  const [complete, setComplete] = useState(false)
+  const [display, setDisplay] = useState(false)
   const [name, setName] = useState('')
   
 
   const getMovie = async (title) => {
     const url = `http://www.omdbapi.com/?s=${title}&page=1&apikey=${api_key}`
       const response = await axios.get(url);
-      console.log("retrieved")
+      
       setMovies(response.data.Search)
       return response
+
+  }
+
+  const updateEnter = event => {
+            setTitle(event.target.value)
+            updateSearch(title)
+
 
   }
 
@@ -28,15 +35,16 @@ function App() {
     
     setTitle(mv)
     setName(mv)
-    setDisplay(false)
+    setSuggest(false)
     getDetail(mv)
-    setComplete(true)
+    setDisplay(true)
   }
 
 
   useEffect(() =>{
-    console.log("here")
+    
     getMovie(title)
+    
     
   },[title])
 
@@ -52,32 +60,37 @@ function App() {
 
  }
 
-  
+  console.log(title)
 
   
   return (
-  <div>
-  <div class='input-group'>
-    <div class = 'form-outline'>
+    <div className= "whole"> 
+  
+  <nav className="navbar navbar-light bg-light">
+  <div className="container-fluid">
+    <a className="navbar-brand">Navbar</a>
+    <form className="d-flex">
         <input
         id="auto"
-        onClick={() => setDisplay(!display)}
+        onClick={() => setSuggest(!suggest)}
         placeholder="Type to search"
         value={title}
         onChange={event => setTitle(event.target.value)}
-       
-      />
-        </div>
-        <button type="button" class="btn btn-primary" onClick={event => {
-          setTitle(event.target.value)
-          updateSearch(title)
-
-
-        }}>
-          <i class="fas fa-search"></i>
-  </button>
-      </div>
-      {movies && display && (
+        onKeyPress={event =>{
+          console.log(event)
+          if(event.key === 'Enter'){
+            console.log("inEnter")
+            updateEnter(event)
+          }}}/>
+        
+        <button  className="btn btn-outline-success" onClick={event => {
+          setTitle("")}} type="clear">Clear</button>
+          <button  className="btn btn-outline-success" onClick={event => {
+          updateEnter(event)}} type="search">Search</button>       
+  </form>
+  
+  </div>
+  {movies && suggest && (
         <div className="autoContainer">
           {movies
             .map((value, i) => {
@@ -92,7 +105,7 @@ function App() {
                   tabIndex="0"
                   key={i}
                 >
-                  <span>{value.Title}</span>
+                  <div>{value.Title}</div>
                   
                 </div>
               );
@@ -100,30 +113,55 @@ function App() {
     
         </div>
       )}
-    <div>
-      {complete && (
-        <div>
-      {name}
-      <img src={poster} alt="movie" />
-      {desc}
-        
-        </div>
-
-      )}
-          
- 
-
-</div>
+      
+</nav>
 
 <div>
+{display && (
+    
+       <div className='row row-cols-1 row-cols-md-3 g-4'>
+          
 
-
-  
+          <div class="card mb-3" styles="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src={poster} class="img-fluid rounded-start" alt="..."/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{name}</h5>
+        <p class="card-text">{desc}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+        
+      )}
+      
+
+
+
+
 </div>
 
+
+        
+</div>
 
 
   )
