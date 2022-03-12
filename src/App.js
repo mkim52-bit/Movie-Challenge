@@ -19,11 +19,11 @@ const Setup = (props) => {
   });
 
   const handleClickOutside = event => {
-    
+
     const { current: wrap } = wrapperRef;
     if (wrap && !wrap.contains(event.target)) {
-        
-        setSuggest(false);
+
+      setSuggest(false);
     }
   };
 
@@ -39,7 +39,7 @@ const Setup = (props) => {
   const updateEnter = event => {
     setTitle(event.target.value)
     updateSearch(title)
-    props.setDisplayDetail(false)
+    setSuggest(false)
 
 
   }
@@ -78,40 +78,44 @@ const Setup = (props) => {
 
   }
 
-  
+
 
 
   return (
     <div ref={wrapperRef} className="whole">
 
-      <nav  className="navbar navbar-gray bg-light">
-        <div  className="container-fluid">
-          <a className="navbar-brand">Navbar</a>
-          <form className="d-flex">
-            <input
-            
-              id="auto"
-              onClick={() => setSuggest(true)}
-              placeholder="Type to search"
-              value={title}
-              onChange={event => setTitle(event.target.value)}
-              onKeyPress={event => {
-                
-                if (event.key === 'Enter') {
-                  
-                  updateEnter(event)
-                }
-              }} />
+      <div className="separates" >
+        <div className="row">
+          <div className='col-lg-4 col-lg-offset-4'>
+            <div className='input-group'>
 
 
-            <button className="btn btn-outline-success"
-              onClick={event => {
-                updateEnter(event)
-              }} type="search">Search
-            </button>
-          </form>
+              <input
+                id="auto"
+                onClick={() => setSuggest(true)}
+                placeholder="Type to search"
+                value={title}
+                onChange={event => setTitle(event.target.value)}
+                onKeyPress={event => {
+
+                  if (event.key === 'Enter') {
+
+                    updateEnter(event)
+                  }
+                }} />
+
+              <span className="input-group-btn">
+                <button className="btn btn-outline-success"
+                  onClick={event => {
+                    updateEnter(event)
+                  }} type="search">Search
+                </button>
+              </span>
+            </div>
+          </div>
 
         </div>
+
         {movies && suggest && (
           <div className="autoContainer">
             {movies
@@ -120,14 +124,14 @@ const Setup = (props) => {
                   <div
                     onClick={() => updateSearch(value.Title)}
                     onKeyUp={event => {
-                      
+
                       setTitle(event.target.value)
                     }}
 
                     tabIndex="0"
                     key={i}
                   >
-                    <div>{value.Title}</div>
+                    <div className='d-flex p-2'>{value.Title}</div>
 
                   </div>
                 );
@@ -136,7 +140,7 @@ const Setup = (props) => {
           </div>
         )}
 
-      </nav>
+      </div>
 
 
     </div>
@@ -182,7 +186,7 @@ function App() {
 
       )}
     </div>
-    
+
 
 
 
