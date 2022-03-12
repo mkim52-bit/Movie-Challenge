@@ -111,7 +111,12 @@ const Setup = (props) => {
                   onClick={() => setSuggest(true)}
                   placeholder="Type to search"
                   value={title}
-                  onChange={event => setTitle(event.target.value)}
+                  onChange={event => {
+                      setSuggest(true)
+                    setTitle(event.target.value)
+
+
+                  }}
                   onKeyPress={event => {
   
                     if (event.key === 'Enter') {
