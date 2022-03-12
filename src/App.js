@@ -30,9 +30,13 @@ const Setup = (props) => {
   const getMovie = async (title) => {
     const url = `http://www.omdbapi.com/?s=${title}&page=1&apikey=${api_key}`
     const response = await axios.get(url);
+    if(response){
+      setMovies(response.data.Search)
 
-    setMovies(response.data.Search)
-    return response
+    }
+
+    
+    
 
   }
 
@@ -46,9 +50,8 @@ const Setup = (props) => {
 
 
   const updateSearch = mv => {
-    console.log("inUpdate")
     setTitle(mv)
-    props.setName(mv)
+    
     setSuggest(false)
     getDetail(mv)
     props.setDisplayDetail(true)
@@ -72,8 +75,21 @@ const Setup = (props) => {
   const getDetail = async (title) => {
     const url = `https://www.omdbapi.com/?t=${title}&page=1&apikey=690ede78`
     const response = await axios.get(url);
-    props.setDesc(response.data.Plot)
-    props.setPoster(response.data.Poster)
+    if(response.data.Response === "True"){
+      props.setName(response.data.Title)
+      props.setDesc(response.data.Plot)
+      props.setPoster(response.data.Poster)
+
+    }
+    else{
+      
+      props.setName("Not found")
+      props.setDesc("Not found")
+      props.setPoster("")
+
+
+    }
+    
 
 
   }
@@ -171,7 +187,7 @@ function App() {
           <div className="card mb-3" styles="max-width: 540px;">
             <div className="row g-0">
               <div className="col-md-4">
-                <img src={poster} className="img-fluid rounded-start" alt="..." />
+                <img src={poster} className="img-fluid rounded-start" alt="Poster" />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
