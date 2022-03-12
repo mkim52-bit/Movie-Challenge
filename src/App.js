@@ -22,7 +22,7 @@ const Setup = (props) => {
     
     const { current: wrap } = wrapperRef;
     if (wrap && !wrap.contains(event.target)) {
-      console.log("inevent")
+        
         setSuggest(false);
     }
   };
@@ -78,27 +78,27 @@ const Setup = (props) => {
 
   }
 
-  console.log(title)
+  
 
 
   return (
-    <div  className="whole">
+    <div ref={wrapperRef} className="whole">
 
-      <nav className="navbar navbar-gray bg-light">
-        <div className="container-fluid">
+      <nav  className="navbar navbar-gray bg-light">
+        <div  className="container-fluid">
           <a className="navbar-brand">Navbar</a>
           <form className="d-flex">
             <input
-            ref={wrapperRef}
+            
               id="auto"
               onClick={() => setSuggest(true)}
               placeholder="Type to search"
               value={title}
               onChange={event => setTitle(event.target.value)}
               onKeyPress={event => {
-                console.log(event)
+                
                 if (event.key === 'Enter') {
-                  console.log("inEnter")
+                  
                   updateEnter(event)
                 }
               }} />
@@ -120,7 +120,7 @@ const Setup = (props) => {
                   <div
                     onClick={() => updateSearch(value.Title)}
                     onKeyUp={event => {
-                      console.log("pressed")
+                      
                       setTitle(event.target.value)
                     }}
 
@@ -182,9 +182,7 @@ function App() {
 
       )}
     </div>
-        <div>
-        hello
-        </div>
+    
 
 
 
