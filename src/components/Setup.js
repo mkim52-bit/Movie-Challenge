@@ -2,6 +2,10 @@ import React from "react"
 import  { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 
+import { Box, Grid, TextField } from "@mui/material";
+import { margin, style } from "@mui/system";
+
+
 
 const Setup = (props) => {
     const api_key = '690ede78';
@@ -98,24 +102,22 @@ const Setup = (props) => {
   
   
     return (
-      <div ref={wrapperRef} className="whole">
+      
+    
+      <div ref={wrapperRef} className='flex-container flex-column pos-rel mt-4' style={{margin: '0 auto',width:"80%"}}>
+        
+              
+              
   
-        <div className="separates" >
-          <div className="row">
-            <div className='col-lg-4 col-lg-offset-4'>
-              <div className='input-group'>
-  
-  
-                <input
-                  id="auto"
+                <input 
+                  className="search-bar"
+                  //style={{width: '80%'}}
                   onClick={() => setSuggest(true)}
-                  placeholder="Type to search"
+                  placeholder="Type to search movies"
                   value={title}
                   onChange={event => {
                       setSuggest(true)
                     setTitle(event.target.value)
-
-
                   }}
                   onKeyPress={event => {
   
@@ -124,35 +126,32 @@ const Setup = (props) => {
                       updateEnter(event)
                     }
                   }} />
-  
-                <span className="input-group-btn">
-                  <button className="btn btn-outline-success"
+                  
+                
+                  <button 
                     onClick={event => {
                       updateEnter(event)
                     }} type="search">Search
                   </button>
-                </span>
-              </div>
-            </div>
+                  
+                  
   
-          </div>
   
           {movies && suggest && (
-            <div className="autoContainer">
+            <div className="autoContainer" style={{width: '80%'}}>
               {movies
                 .map((value, i) => {
                   return (
-                    <div
+                    <div 
                       onClick={() => updateSearch(value.Title)}
                       onKeyUp={event => {
-  
                         setTitle(event.target.value)
                       }}
-  
+                     
                       tabIndex="0"
                       key={i}
                     >
-                      <div className='d-flex p-2'>{value.Title}</div>
+                      <div className='card' style={{border:"1px"}}>{value.Title}</div>
   
                     </div>
                   );
@@ -160,14 +159,20 @@ const Setup = (props) => {
   
             </div>
           )}
-  
-        </div>
+
+       
+
+
+
+        
+        
   
   
       </div>
   
   
     )
+              
   
   }
 
