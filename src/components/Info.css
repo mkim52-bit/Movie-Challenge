@@ -1,10 +1,16 @@
 .poster {
 margin-left: 4%;
 float: left;
+  /* max-width:230px;
+  max-height:95px; */
+ 
 
 }
 
 img {
+    width: 300px;
+    height: 450px;
+  
     
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
 }
@@ -14,19 +20,35 @@ img {
     position: relative;
     float: right;
     width: 50%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-right: 27%;
     background-color: #323b49 ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
-  
-   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, .5);
 }
 
+.containInner{
+    height: 200%;
+    width: 100%;
+    color: beige;
+
+}
+.year{
+    float: left;
+    margin-left: 20px;
+    width: 47%;
+
+}
+.star{
+    float: right;
+    margin-right: 0%;
+    width: 50%;
+}
 .name{
 margin-top: 5px;
 margin-left: 20px;
 }
 h1{
+    font-size: 64px;
     color: azure;
 }
 .desc{

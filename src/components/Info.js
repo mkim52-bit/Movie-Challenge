@@ -16,7 +16,18 @@ const Info = (props) => {
                     <div className="contain">
 
                         <div className="name">
-                        <h1  >{props.name}</h1>      
+                        <h1>{props.name}</h1>      
+                        </div>
+                        <div className="containInner">
+
+                        <div className="year">
+                            Released: {props.date}
+
+                        </div>
+                        <div className="star">
+                        {props.stars}
+                            
+                        </div>
                         </div>
 
                         <div className="desc"> 

@@ -3,8 +3,10 @@
     position: absolute;
     left: 77%;
     top: 20px;
-    text-align: initial;
-  
+    
+    height: 3%;
+    border: 0PX;
+   
    
    
     }
@@ -25,12 +27,21 @@
 }
 
 input[type=text] {
-    border: 0px solid azure; 
+    border: 0px solid azure;
+    border-radius: 1px;
     color: azure;
     background: #293241;
+    outline: none;
+    text-align: left;
     
   }
 
 input::placeholder{
     color: azure;
+}
+
+input:focus{
+
+    border-bottom: 1px solid azure;
+
 }

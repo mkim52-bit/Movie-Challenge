@@ -83,6 +83,9 @@ const SearchBar = (props) => {
       props.setName(response.data.Title)
       props.setDesc(response.data.Plot)
       props.setPoster(response.data.Poster)
+      props.setDate(response.data.Released)
+      props.setStars(response.data.Ratings[0].Value)
+    
 
     }
     else {

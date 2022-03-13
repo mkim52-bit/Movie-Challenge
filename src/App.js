@@ -4,24 +4,28 @@ import Info from './components/Info'
 import './App.css'
 
 
+
 function App() {
   const [desc, setDesc] = useState('')
   const [poster, setPoster] = useState('')
   const [displayDetail, setDisplayDetail] = useState(false)
   const [name, setName] = useState('')
+  const [date, setDate] = useState('')
+  const [stars, setStars] = useState('')
 
   return (<div className='App'>
     <div className='searchApp'>
       
 
-        <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} />
-      
+        <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} setDate={setDate} setStars={setStars}/>
+        {console.log({stars})}
+        {console.log({date})}
         </div>
 
       
      
       <div className='displayApp'>
-      <Info displayDetail={displayDetail} name={name} desc={desc} poster={poster} />
+      <Info displayDetail={displayDetail} name={name} desc={desc} poster={poster} date={date} stars={stars} />
 
       </div>
 
