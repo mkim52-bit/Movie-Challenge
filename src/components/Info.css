@@ -1,0 +1,46 @@
+.poster {
+/* width: 37%;
+max-width: 37%; */
+position: relative;
+height: 20%;
+margin-left: 0.3%;
+float: left;
+
+}
+
+img {
+    border: 2px solid rgb(178, 218, 231);
+    box-shadow: 10px 10px 10px rgb(122, 197, 223);
+}
+
+.contain{
+    /* position: absolute; 
+    left: 20%;
+    top: 0%;
+    padding: 50px 20px; */
+    position: relative;
+    float: right;
+    margin-right: 36%;
+    width: 50%;
+    border: 2px solid rgb(178, 218, 231);
+    box-shadow: 10px 10px 10px rgb(122, 197, 223);
+  
+   
+}
+
+.name{
+margin-top: 5px;
+margin-left: 10px;
+}
+h1{
+    color: azure;
+}
+.desc{
+    margin-bottom: 23px;
+    margin-left: 10px;
+}
+
+p{
+color: azure;
+
+}

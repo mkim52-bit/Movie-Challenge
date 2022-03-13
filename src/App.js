@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Setup from './components/Setup';
+import SearchBar from './components/SearchBar'
+import Info from './components/Info'
 import './App.css'
-
 
 
 function App() {
@@ -10,57 +10,29 @@ function App() {
   const [displayDetail, setDisplayDetail] = useState(false)
   const [name, setName] = useState('')
 
-  return( <div className='container'>
-    
-    
-    
-      <Setup setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} />
+  return (<div className='App'>
+    <div className='searchApp'>
       
-    
-   
- <div className='container'>
-<div className='row'>
-    <div>
-      {displayDetail && (
 
-        <div className=''>
-
-
-         
-            
-              <div >
-                <img src={poster}  alt="Poster" />
-              </div>
-              <div >
-                
-                  <h5 >{name}</h5>
-                  <p >{desc}</p>
-                  
-                
-              </div>
-            
-         
+        <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} />
+      
         </div>
 
-      )}
-    </div>
-    </div>
-    </div>
-    
-    
       
+     
+      <div className='displayApp'>
+      <Info displayDetail={displayDetail} name={name} desc={desc} poster={poster} />
+
+      </div>
+
+      
+    </div>
 
 
 
-  </div>
+
+
   )
-
-
-
-
-
-
-
 
 }
 

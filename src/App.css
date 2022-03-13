@@ -1,9 +1,14 @@
-body{
-	background-color: whitesmoke
+body  {
+	 background-color: #293241; 
+	
+	
+	
   }
 
-   .search-bar {
-	width: 80%
+.displayApp{
+	position: relative;
+	margin-top: 10%;
+	width: 100%;
+	
+}
 
-
-  } 
