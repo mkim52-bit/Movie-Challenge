@@ -1,29 +1,23 @@
 .poster {
-/* width: 37%;
-max-width: 37%; */
-position: relative;
-height: 20%;
-margin-left: 0.3%;
+margin-left: 1%;
 float: left;
 
 }
 
 img {
-    border: 2px solid rgb(178, 218, 231);
-    box-shadow: 10px 10px 10px rgb(122, 197, 223);
+    border: 2px solid azure;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .contain{
-    /* position: absolute; 
-    left: 20%;
-    top: 0%;
-    padding: 50px 20px; */
+    
     position: relative;
     float: right;
-    margin-right: 36%;
     width: 50%;
-    border: 2px solid rgb(178, 218, 231);
-    box-shadow: 10px 10px 10px rgb(122, 197, 223);
+    margin-top: 1%;
+    margin-right: 30%;
+    border: 2px solid azure;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
    
 }
@@ -36,6 +30,7 @@ h1{
     color: azure;
 }
 .desc{
+    width: 85%;
     margin-bottom: 23px;
     margin-left: 10px;
 }
