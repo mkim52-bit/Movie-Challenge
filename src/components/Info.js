@@ -1,6 +1,6 @@
 import React from "react";
 import './Info.css'
-
+//component for displaying all info
 const Info = (props) => {
 
 

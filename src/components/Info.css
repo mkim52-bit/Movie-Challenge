@@ -10,8 +10,7 @@ float: left;
     width: 300px;
     height: 450px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, .5);
-    /* box-shadow: 10px 10px #E16428; */
-    /* border: 1px solid #1F1D36; */
+  
 }
 
 .contain{
@@ -22,9 +21,9 @@ float: left;
     margin-top: 2.5%;
     margin-right: 27%;
     background-color: #201e1e ;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, .5); */
-    box-shadow: 10px 10px 6px #f0ffff;
-    /* border: 1px solid #1F1D36; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .4);
+    
+    
     
     
 }

@@ -2,11 +2,7 @@ import React from "react"
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './SearchBar.css'
-
-
-
-
-
+//component for search bar and suggestions
 const SearchBar = (props) => {
   const api_key = '690ede78';
   const [movies, setMovies] = useState([])
@@ -16,7 +12,7 @@ const SearchBar = (props) => {
 
 
   useEffect(() => {
-    window.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("mousedown", handleClickOutside);                   
     return () => {
       window.removeEventListener("mousedown", handleClickOutside);
     };
@@ -31,7 +27,7 @@ const SearchBar = (props) => {
     }
   };
 
-  const getMovie = async (title) => {
+  const getMovie = async (title) => {                                         //gets all suggested movies 
     const url = `http://www.omdbapi.com/?s=${title}&page=1&apikey=${api_key}`
     const response = await axios.get(url);
     if (response) {
@@ -44,7 +40,7 @@ const SearchBar = (props) => {
 
   }
 
-  const updateEnter = event => {
+  const updateEnter = event => {                                              //pressing enter searches for details
     setTitle(event.target.value)
     updateSearch(title)
     setSuggest(false)
@@ -53,7 +49,7 @@ const SearchBar = (props) => {
   }
 
 
-  const updateSearch = mv => {
+  const updateSearch = mv => {                                               //clicking one of the suggested searched for details
     setTitle(mv)
 
     setSuggest(false)
@@ -63,20 +59,11 @@ const SearchBar = (props) => {
 
 
   useEffect(() => {
-
     getMovie(title)
-
-
   }, [title])
 
 
-
-
-
-
-
-
-  const getDetail = async (title) => {
+  const getDetail = async (title) => {                                            //gets details of the movie
     const url = `https://www.omdbapi.com/?t=${title}&page=1&apikey=690ede78`
     const response = await axios.get(url);
     if (response.data.Response === "True") {
@@ -94,6 +81,9 @@ const SearchBar = (props) => {
       props.setName("Not found")
       props.setDesc("Not found")
       props.setPoster("")
+      props.setDate("")
+      props.setStars("")
+      props.setRuntime("")
 
 
     }
@@ -138,7 +128,7 @@ const SearchBar = (props) => {
 
 
 
-      {movies && suggest && (
+      {movies && suggest && (                                               //when movie array exists and suggestions are shown
         <div className="suggest">
           {movies
             .map((value, i) => {
