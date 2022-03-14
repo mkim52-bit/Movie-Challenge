@@ -85,7 +85,8 @@ const SearchBar = (props) => {
       props.setPoster(response.data.Poster)
       props.setDate(response.data.Released)
       props.setStars(response.data.Ratings[0].Value)
-    
+      props.setRuntime(response.data.Runtime)
+      
 
     }
     else {
@@ -114,7 +115,7 @@ const SearchBar = (props) => {
         type='text'
         className="search"
         onClick={() => setSuggest(true)}
-        placeholder="Type to search movies"
+        placeholder="Type here to search"
         value={title}
         onChange={event => {
           setSuggest(true)
@@ -132,13 +133,7 @@ const SearchBar = (props) => {
 
 
 
-      {/*
-                  <button 
-                    onClick={event => {
-                      updateEnter(event)
-                    }} type="search">Search
-                  </button>
-                  */}
+
                     
 
 

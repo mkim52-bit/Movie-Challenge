@@ -1,18 +1,16 @@
 .poster {
 margin-left: 4%;
 float: left;
-  /* max-width:230px;
-  max-height:95px; */
+ 
  
 
 }
 
-img {
+.movieImage {
     width: 300px;
     height: 450px;
-  
-    
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .7), 0 6px 20px 0 rgba(0, 0, 0, .7);
+    border: 0px solid #000;
 }
 
 .contain{
@@ -20,28 +18,43 @@ img {
     position: relative;
     float: right;
     width: 50%;
-    margin-top: 2%;
+    margin-top: 2.5%;
     margin-right: 27%;
-    background-color: #323b49 ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, .5);
+    background-color: #202325 ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .7), 0 6px 20px 0 rgba(0, 0, 0, .7);
+    border: 1px solid #939c9c;
+    
 }
 
 .containInner{
     height: 200%;
     width: 100%;
-    color: beige;
+    color: #f5ebce;
 
 }
-.year{
+.year{                      
     float: left;
-    margin-left: 20px;
-    width: 47%;
+    margin-left: 20px;  
+    width: 17%;         /*shares box with .star added percentage is 100% - margin-left*/
 
 }
-.star{
+
+.icon{
+    height: 23px;
+    width: 23px;
+    float: left;
+}
+.rating{
     float: right;
     margin-right: 0%;
-    width: 50%;
+    
+    width: 67%;
+}
+
+.runtime{
+    float: left;
+    width: 13%;
+
 }
 .name{
 margin-top: 5px;
@@ -49,7 +62,7 @@ margin-left: 20px;
 }
 h1{
     font-size: 64px;
-    color: azure;
+    color:#fff;
 }
 .desc{
     width: 85%;
@@ -58,6 +71,11 @@ h1{
 }
 
 p{
-color: azure;
+color: #cad3d3;
+
+}
+
+.star {
+    margin-left: 30px;
 
 }

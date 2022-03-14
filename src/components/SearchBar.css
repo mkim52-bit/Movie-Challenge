@@ -16,32 +16,32 @@
     width: 15%;
     position: absolute;
     left: 78%;
-    top: 80px;
+    top: 60px;
 }
 
 
 
 .slot{
-    color: azure;
+    color: #f0ffff;
     margin-top: 10px;
 }
 
 input[type=text] {
-    border: 0px solid azure;
+    border: 0px solid #f0ffff;
     border-radius: 1px;
-    color: azure;
-    background: #293241;
+    color: #f0ffff;
+    background: #202325;
     outline: none;
     text-align: left;
     
   }
 
 input::placeholder{
-    color: azure;
+    color: #f0ffff;
 }
 
 input:focus{
 
-    border-bottom: 1px solid azure;
+    border-bottom: 1px solid #f0ffff;
 
 }

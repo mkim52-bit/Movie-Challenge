@@ -12,12 +12,13 @@ function App() {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [stars, setStars] = useState('')
+  const [runtime, setRuntime] = useState('')
 
   return (<div className='App'>
     <div className='searchApp'>
       
 
-        <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} setDate={setDate} setStars={setStars}/>
+        <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} setDate={setDate} setStars={setStars} setRuntime={setRuntime}/>
         {console.log({stars})}
         {console.log({date})}
         </div>
@@ -25,7 +26,7 @@ function App() {
       
      
       <div className='displayApp'>
-      <Info displayDetail={displayDetail} name={name} desc={desc} poster={poster} date={date} stars={stars} />
+      <Info displayDetail={displayDetail} name={name} desc={desc} poster={poster} date={date} stars={stars} runtime={runtime}/>
 
       </div>
 

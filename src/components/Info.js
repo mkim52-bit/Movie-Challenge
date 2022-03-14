@@ -10,6 +10,7 @@ const Info = (props) => {
                 <div class= 'card'>
                     <div className="poster">
                         <img
+                            className="movieImage"
                             src={props.poster} alt="Poster"
                         />
                     </div>
@@ -24,9 +25,16 @@ const Info = (props) => {
                             Released: {props.date}
 
                         </div>
-                        <div className="star">
-                        {props.stars}
+                        <div className="rating">
+                        <img className="icon" src="https://img.icons8.com/fluency/48/000000/star.png"/>  
+                            <div className="star">
+                                {props.stars}
+
+                            </div>
                             
+                        </div>
+                        <div className="runtime">
+                            Runtime: {props.runtime}
                         </div>
                         </div>
 
