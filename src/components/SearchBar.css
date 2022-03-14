@@ -27,10 +27,10 @@
 }
 
 input[type=text] {
-    border: 0px solid #f0ffff;
+    border: 0px;
     border-radius: 1px;
     color: #f0ffff;
-    background: #202325;
+    background: #242424;
     outline: none;
     text-align: left;
     
@@ -42,6 +42,6 @@ input::placeholder{
 
 input:focus{
 
-    border-bottom: 1px solid #f0ffff;
+    border-bottom: 1px solid #ffffbb;
 
 }
