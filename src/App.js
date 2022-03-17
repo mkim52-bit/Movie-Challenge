@@ -22,8 +22,7 @@ function App() {
       
 
         <SearchBar setName={setName} setDisplayDetail={setDisplayDetail} setPoster={setPoster} setDesc={setDesc} setDate={setDate} setStars={setStars} setRuntime={setRuntime}/>  
-        {console.log({stars})}
-        {console.log({date})}
+        
         </div>
 
       
